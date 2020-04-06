@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminEmployeeController extends Controller
+class AdminEmployeeController extends ApiController
 {
 
     public function index()

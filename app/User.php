@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasApiTokens;
 
     const USER_TYPE = ['client', 'admin'];
     const USER_VERIFICATION = ['unverified', 'verified'];
@@ -20,7 +21,7 @@ class User extends Authenticatable
     ];
 
     protected $hidden = [
-        'password', 'remember_token','created_at','updated_at',
+        'password', 'remember_token', 'created_at', 'updated_at',
     ];
 
     /**
