@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use App\Traits\ApiResponser;
-use Exception;
+use Throwable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -38,7 +38,7 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         parent::report($exception);
     }
@@ -52,14 +52,14 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $exception)
     {
         $response = $this->handleException($request, $exception);
         //return parent::render($request, $exception);
         return $response;
     }
 
-    private function handleException(Request $request, Exception $exception)
+    private function handleException(Request $request, Throwable $exception)
     {
         return response()->json(['messagee' => $exception->getMessage(), 'code' => 404],404);
 
