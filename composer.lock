@@ -1992,6 +1992,7 @@
         },
         {
             "name": "symfony/http-foundation",
+
             "version": "v5.0.7",
             "source": {
                 "type": "git",
@@ -2002,6 +2003,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/26fb006a2c7b6cdd23d52157b05f8414ffa417b6",
                 "reference": "26fb006a2c7b6cdd23d52157b05f8414ffa417b6",
+
                 "shasum": ""
             },
             "require": {
@@ -2043,7 +2045,11 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2020-03-30T14:14:32+00:00"
+=======
+            "time": "2020-03-30T14:07:33+00:00"
+>>>>>>> e616469709b4da471d4d344ac9eddb266c214c8b
         },
         {
             "name": "symfony/http-kernel",
