@@ -9,7 +9,6 @@ class Company extends Model
     //
     const NAME = 'company_name';
     const DESCRIPTION = 'description';
-    const BRANCH_OF = 'branch_of';
     const LOCATION = 'location';
 
     public function admin()

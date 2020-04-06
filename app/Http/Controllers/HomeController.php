@@ -27,7 +27,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Get tokens for authentication
+     * Get personal-access-tokens for authentication in api.
      *
      */
     public function getTokens()

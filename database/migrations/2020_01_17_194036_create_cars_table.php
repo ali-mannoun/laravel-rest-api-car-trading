@@ -17,7 +17,6 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('company_id');
-            $table->unsignedBigInteger('employee_id');
             //1. General information
             $table->string('main_image_url');
             $table->string('brand');
@@ -57,7 +56,6 @@ class CreateCarsTable extends Migration
             //$table->timestamps();
 
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 

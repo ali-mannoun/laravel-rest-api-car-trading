@@ -19,7 +19,6 @@ class CreateCompaniesTable extends Migration
             $table->unsignedBigInteger('admin_id');
             $table->string('name');
             $table->string('description');
-            $table->integer('branch_of')->nullable();
             $table->string('location');
             $table->timestamps();
 

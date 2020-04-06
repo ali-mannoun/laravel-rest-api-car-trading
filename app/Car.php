@@ -14,18 +14,8 @@ class Car extends Model
      *
      * @var array
      */
-    protected $touches = ['employee'];
+    //protected $touches = [''];
     public $timestamps = false;
-
-    public function employee()
-    {
-        return $this->belongsTo(Employee::class);
-    }
-
-    public function histories()
-    {
-        return $this->hasMany(History::class);
-    }
 
     public function car_images()
     {
