@@ -21,8 +21,4 @@ class Admin extends User
         return $this->hasMany(Company::class);
     }
 
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class)->withTimestamps();
-    }
 }

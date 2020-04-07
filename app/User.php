@@ -43,27 +43,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Car::class);
     }
 
-    public function accounts()
-    {
-        return $this->hasMany(Account::class);
-    }
-
-    public function user_types()
-    {
-        return $this->hasMany(UserType::class);
-    }
-
     public function admins()
     {
         return $this->hasMany(Admin::class);
-    }
-    public function employees()
-    {
-        return $this->hasMany(Employee::class);
-    }
-
-    public function getUserType()
-    {
-
     }
 }

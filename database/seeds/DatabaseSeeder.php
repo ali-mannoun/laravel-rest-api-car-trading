@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         Admin::truncate();
         Company::truncate();
         Car::truncate();
-        DB::table('car_client')->truncate();
+        DB::table('car_user')->truncate();
 
         factory(User::class, $accountsQuantity)->create();
         factory(Admin::class, $accountsQuantity)->create();
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         factory(Car::class, $accountsQuantity)->create()->each(
         function ($car){
         $users = User::all()->random()->pluck('id');
-        $car->clients()->attach($users);
+        $car->users()->attach($users);
         });
         factory(CarImage::class,$accountsQuantity)->create();
     }
