@@ -38,6 +38,11 @@ class User extends Authenticatable
         return Str::random(40);
     }
 
+    public function cars()
+    {
+        return $this->belongsToMany(Car::class);
+    }
+
     public function accounts()
     {
         return $this->hasMany(Account::class);

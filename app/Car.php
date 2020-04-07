@@ -26,4 +26,10 @@ class Car extends Model
     {
         return $this->belongsToMany(Client::class)->withTimestamps();
     }
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 }

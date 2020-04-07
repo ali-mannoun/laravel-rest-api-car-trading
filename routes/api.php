@@ -17,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 /**
  * User Endpoints
  */
 Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]);
 Route::post('users/check-user-credentials', 'User\UserController@checkUserCredentials');
 Route::post('users/login', 'User\UserController@getLoginCredentials');
+//Add this route to enable user to add cars to favourite list.
+Route::resource('users.cars','User\UserCarController',['only' => ['index','store','destroy']]);
 /**
  * Car Endpoints
  */
