@@ -3,7 +3,6 @@
 use App\Admin;
 use App\Car;
 use App\CarImage;
-use App\Client;
 use App\Company;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -25,20 +24,17 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Admin::truncate();
         Company::truncate();
-        Client::truncate();
         Car::truncate();
         DB::table('car_client')->truncate();
 
         factory(User::class, $accountsQuantity)->create();
         factory(Admin::class, $accountsQuantity)->create();
         factory(Company::class, $accountsQuantity)->create();
-        factory(Client::class, $accountsQuantity)->create();
         factory(Car::class, $accountsQuantity)->create()->each(
         function ($car){
-        $clients = Client::all()->random()->pluck('id');
-        $car->clients()->attach($clients);
-        }
-        );
+        $users = User::all()->random()->pluck('id');
+        $car->clients()->attach($users);
+        });
         factory(CarImage::class,$accountsQuantity)->create();
     }
 }

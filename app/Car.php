@@ -22,12 +22,7 @@ class Car extends Model
         return $this->hasMany(CarImage::class);
     }
 
-    public function clients()
-    {
-        return $this->belongsToMany(Client::class)->withTimestamps();
-    }
-
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }

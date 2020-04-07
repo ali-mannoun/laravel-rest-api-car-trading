@@ -53,10 +53,6 @@ class User extends Authenticatable
         return $this->hasMany(UserType::class);
     }
 
-    public function clients()
-    {
-        return $this->hasMany(Client::class);
-    }
     public function admins()
     {
         return $this->hasMany(Admin::class);
