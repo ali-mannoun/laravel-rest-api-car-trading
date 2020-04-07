@@ -17,6 +17,9 @@ class UserCarController extends ApiController
     public function index(User $user)
     {
         //list all cars found in the $user favourite list.
+        //the data will contain pivot field in the results so we hide it .
+        $cars = $user->cars()->get()->makeHidden(['pivot']);
+        return $this->showAll($cars, 200);
     }
 
     /**
@@ -25,9 +28,17 @@ class UserCarController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $user, Car $car)
+    public function store(Request $request, User $user)
     {
+        $rules = ['car_id' => 'required'];
+        $this->validate($request, $rules);
         //the user that want to add $car to the favourite list.
+        $car = Car::all()->where('id', $request->car_id);
+        if ($car != null && $car->isNotEmpty()) {
+            $user->cars()->attach($car, ['created_at' => now(), 'updated_at' => now()]);
+            return $this->showMessage('success', 201);
+        }
+        return $this->showMessage('error', 400);
     }
 
     /**
@@ -38,6 +49,7 @@ class UserCarController extends ApiController
      */
     public function destroy(User $user, Car $car)
     {
-        //the user that want to delete the $car from the favourite list.
+        $user->cars()->detach($car);
+        return $this->showMessage('success', 202);
     }
 }
