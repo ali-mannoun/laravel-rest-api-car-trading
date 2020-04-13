@@ -21,6 +21,7 @@ class Car extends JsonResource
             'model' =>$this->model,
             'main_image_url' => $this->main_image_url,
             'max_speed' => $this->max_speed,
+            'company_id' => $this->company_id,
         ];
     }
 }

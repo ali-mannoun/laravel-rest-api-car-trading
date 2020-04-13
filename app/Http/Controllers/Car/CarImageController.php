@@ -38,7 +38,7 @@ class CarImageController extends ApiController
         $image_name = $request->image->store('', 'images');
 
         $car_image = CarImage::create([
-            'image_url' => url("img\\" . $image_name),
+            'image_url' => url("img/" . $image_name),
             'car_id' => $request->car_id,
         ]);
 

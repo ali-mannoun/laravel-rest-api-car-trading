@@ -18,7 +18,7 @@ $factory->define(Car::class, function (Faker $faker) {
         'generation' => $faker->numberBetween(100, 300),
         'year_of_putting_into_production' => $faker->numberBetween(1900, 2020),
         'year_of_stopping_production' => $faker->numberBetween(2010, 2019),
-        'description' => $faker->paragraph(),
+        'description' => $faker->text(),
 
         'power' => $faker->randomElement(['20 kW', '647 kW', '80.000 kW']),
         'model_engine' => $faker->randomElement(['Haynes HM10R V8 Engine, Multi', 'Haynes HMV2R Motorcycle Engine, Multi', 'Haynes MWHV2 V-Twin Motorcycle Engine Model, Multi']),

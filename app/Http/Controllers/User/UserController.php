@@ -50,6 +50,12 @@ class UserController extends ApiController
         //TODO
     }
 
+    /**
+     * Check if the user exists in the database .
+     *
+     * @return errorResponse OR successResponse NOT the actual user credentials.
+     *
+     */
     public function checkUserCredentials(Request $request)
     {
         $rules = [
@@ -60,16 +66,20 @@ class UserController extends ApiController
         $this->validate($request, $rules);
 
         $user = User::where('email', $request->email)->first();
+        //if the user exists
         if ($user != null) {
+            //Check if the entered password match the user password.
             if (Hash::check($request->password, $user->password)) {
                 return $this->response("user exists",200);
             } else {
-                return $this->response('The given data was invalid', 400);
+                return $this->response('The given data was invalid', 404);
             }
         }
         return $this->response('no user exists', 404);
     }
-
+/**
+ * Login the user into the database after checking his credentials.
+ */
     public function getLoginCredentials(Request $request)
     {
         $rules = [
@@ -84,10 +94,9 @@ class UserController extends ApiController
             if (Hash::check($request->password, $user->password)) {
                 return new ResourcesUser($user);
             } else {
-                return $this->response('The given data was invalid', 400);
+                return $this->response('The given data was invalid', 404);
             }
         }
         return $this->response('no user exists', 404);
-
     }
 }

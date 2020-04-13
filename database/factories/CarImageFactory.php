@@ -7,6 +7,7 @@ use App\CarImage;
 use Faker\Generator as Faker;
 
 $factory->define(CarImage::class, function (Faker $faker) {
+    /*
     return [
         'car_id' => Car::all()->random()->id,
         'image_url' => $faker->randomElement([
@@ -16,5 +17,10 @@ $factory->define(CarImage::class, function (Faker $faker) {
             'C:\Users\ASUS\AppData\Local\Temp\5a5249d20379d2996d09c6f30cc07431.jpg',
             'C:\Users\ASUS\AppData\Local\Temp\78fae485b0fab40e882fcfcfe44aa41c.jpg'
             ]),
+    ];
+    */
+    return [
+        'car_id' => Car::all()->random()->id,
+        'image_url' => $faker->imageUrl(),
     ];
 });

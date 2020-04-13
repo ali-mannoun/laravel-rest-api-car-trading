@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         Admin::truncate();
         Company::truncate();
         Car::truncate();
+        CarImage::truncate();
         DB::table('car_user')->truncate();
 
         factory(User::class, $accountsQuantity)->create();
