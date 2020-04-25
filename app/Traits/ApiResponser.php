@@ -24,13 +24,13 @@ trait ApiResponser
 
     protected function showMessage($message, $code = 200)
     {
-        return $this->successResponse(['data' => $message, 'code' => $code], $code);
+        return $this->successResponse(['message' => $message, 'code' => $code], $code);
     }
 
     protected function showAll(Collection $collection, $code = 200)
     {
         if ($collection->isEmpty()) {
-            return $this->successResponse(['data' => $collection], $code);
+            return $this->successResponse(['message' => $collection], $code);
         }
         return $this->successResponse($collection, $code);
     }
