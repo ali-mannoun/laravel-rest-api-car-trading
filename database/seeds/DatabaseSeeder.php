@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        //We don't need to create events when seeding .
+        User::flushEventListeners();
+
         $accountsQuantity = 5;
 
         // $this->call(UsersTableSeeder::class);
