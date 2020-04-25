@@ -99,4 +99,14 @@ class UserController extends ApiController
         }
         return $this->response('no user exists', 404);
     }
+
+    public function verify($token)
+    {
+        $user = User::where('verification_token',$token)->firstOrFail();
+        $user->user_verification = User::USER_VERIFICATION[1];//verified
+        $user->verification_token = null;
+        $user->save();
+
+        return $this->showMessage('The account has been verified successfully');
+    }
 }

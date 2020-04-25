@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /**
  * User Endpoints
  */
+Route::name('verify')->get('user/verify/{token}','User\UserController@verify');
 Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]);
 Route::post('users/check-user-credentials', 'User\UserController@checkUserCredentials');
 Route::post('users/login', 'User\UserController@getLoginCredentials');

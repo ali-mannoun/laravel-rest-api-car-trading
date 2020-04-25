@@ -16,12 +16,12 @@ class User extends Authenticatable
     const ACCOUNT_TYPE = ['default', 'facebook', 'google'];
 
     protected $fillable = [
-        'name', 'email', 'password', 'user_type', 'verification_token',
-        'user_verification', 'account_type',
+        'name', 'email', 'password', 'verification_token' ,
+         'user_verification', 'account_type','user_type',
     ];
 
     protected $hidden = [
-        'password', 'remember_token', 'created_at', 'updated_at',
+        'password', 'remember_token', 'created_at', 'updated_at','verification_token',
     ];
 
     /**
