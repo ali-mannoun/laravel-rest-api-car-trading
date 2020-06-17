@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Car;
 
 use App\Car;
 use App\Http\Controllers\ApiController;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Resources\Car as ResourceCar;
 
 class CarController extends ApiController

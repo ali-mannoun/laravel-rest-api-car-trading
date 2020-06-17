@@ -26,7 +26,7 @@ Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]
 Route::post('users/check-user-credentials', 'User\UserController@checkUserCredentials');
 Route::post('users/login', 'User\UserController@getLoginCredentials');
 //Add this route to enable user to add cars to favourite list.
-Route::resource('users.cars','User\UserCarController',['only' => ['index','store','destroy']]);
+Route::resource('users.cars','User\UserCarController',['only' => ['index','store','destroy','show']]);
 /**
  * Car Endpoints
  */

@@ -109,4 +109,10 @@ class UserController extends ApiController
 
         return $this->showMessage('The account has been verified successfully');
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return $this->showMessage('deleted successfully',200);
+    }
 }

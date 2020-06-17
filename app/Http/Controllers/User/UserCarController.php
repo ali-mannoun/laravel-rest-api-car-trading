@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Car;
 use App\Http\Controllers\ApiController;
+use App\Http\Resources\Car as ResourcesCar;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,17 @@ class UserCarController extends ApiController
         //list all cars found in the $user favourite list.
         //the data will contain pivot field in the results so we hide it .
         $cars = $user->cars()->get()->makeHidden(['pivot']);
-        return $this->showAll($cars, 200);
+        return ResourcesCar::collection($cars);
+        //return $this->showAll($cars, 200);
+    }
+
+    public function show(User $user, Car $car)
+    {
+        if ($user->cars()->wherePivot('car_id', '=', $car->id)->first() == null) {
+            return $this->showMessage("Car not in favourite list", 404);
+        } else {
+            return $this->showMessage("Car in favourite list", 200);
+        }
     }
 
     /**
